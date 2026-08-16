@@ -20,23 +20,23 @@ The assistant automates **Request for Quote (RFQ) email processing**, **territor
 ## 🏗️ Architecture Diagram
 
 ```mermaid
-graph TD
-    User([Jane Peacock / Human Operator]) <--> MainAgent[Primary Deep Agent\nchinook-sales-assistant]
+flowchart TD
+    User(["Jane Peacock / Human Operator"]) <--> MainAgent["Primary Deep Agent<br/>chinook-sales-assistant"]
     
-    subgraph Core System Infrastructure
-        Backend[FilesystemBackend\nVirtual Filesystem Abstraction]
-        Memory[MemoryMiddleware\nAGENTS.md]
-        Interpreter[CodeInterpreterMiddleware\nQuickJS Sandbox Math]
-        Skills[/skills/ Playbooks\nrfq-quote | territory-report | weekly-newsletter]
+    subgraph Core ["Core System Infrastructure"]
+        Backend["FilesystemBackend<br/>Virtual Filesystem Abstraction"]
+        Memory["MemoryMiddleware<br/>AGENTS.md"]
+        Interpreter["CodeInterpreterMiddleware<br/>QuickJS Sandbox Math"]
+        Skills["/skills/ Playbooks<br/>rfq-quote • territory-report • weekly-newsletter"]
     end
 
-    MainAgent --- Core System Infrastructure
+    MainAgent --- Core
 
-    subgraph Specialist Subagents
-        Analyst[chinook-analyst\nSQL Database Specialist]
-        Inbox[inbox-manager\nMail MCP Specialist]
-        Reviewer[quote-reviewer\nMath & Terms Auditor]
-        Researcher[genre-researcher\nParallel Web Search]
+    subgraph Specialists ["Specialist Subagents"]
+        Analyst["chinook-analyst<br/>SQL Database Specialist"]
+        Inbox["inbox-manager<br/>Mail MCP Specialist"]
+        Reviewer["quote-reviewer<br/>Math & Terms Auditor"]
+        Researcher["genre-researcher<br/>Parallel Web Search"]
     end
 
     MainAgent --> Analyst
@@ -44,9 +44,9 @@ graph TD
     MainAgent --> Reviewer
     MainAgent --> Researcher
 
-    subgraph Human-in-the-Loop Approval Gates
-        Gate1{Jane Approves?}
-        Gate2{Jane Approves?}
+    subgraph HITL ["Human-in-the-Loop Approval Gates"]
+        Gate1{"Jane Approves?"}
+        Gate2{"Jane Approves?"}
     end
 
     Analyst -->|add_customer| Gate1 --> Database[(chinook.db)]
