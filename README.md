@@ -59,33 +59,61 @@ flowchart TD
 
 ```text
 Sales_assistant/
-├── agent.py            # Primary agent entrypoint & graph compiler (make_graph)
-├── subagents.py        # 4 specialist subagents (analyst, inbox, reviewer, researcher)
-├── langgraph.json      # LangGraph Dev server configuration manifest
-├── USER_GUIDE.md       # Comprehensive prompt playbook & database schema guide
-├── AGENTS.md           # Operating manual & global system instructions
-├── pyproject.toml      # Dependency specifications (deepagents, langchain, fastmcp)
-├── start.sh            # Shell launch script for Unix/Linux environments
-├── skills/             # Plain-text task playbooks
-│   ├── rfq-quote/           # Step-by-step quote processing instructions
-│   ├── territory-report/    # Territory metrics & chart generation instructions
-│   └── weekly-newsletter/   # Parallel genre research & newsletter assembly
-├── tools/              # Custom tool implementations
-│   ├── sql.py               # Read-only SQLite query, schema introspection & customer insertion
-│   ├── html.py              # nh3 sanitized Markdown-to-HTML converter
-│   ├── chart.py             # Matplotlib pie chart generator
-│   └── search.py            # Tavily news search wrapper
-├── mcp/                # Mock Mail FastMCP HTTP Server
-│   ├── mock_mail_server.py  # FastMCP server running on port 5002
-│   ├── mail_store.py        # Persistent JSON mailbox manager
-│   ├── send_to_inbox.py     # CLI tool to inject incoming customer emails
-│   └── seeds/               # Seed JSON email fixtures (RFQ requests)
-├── outputs/            # Deliverables output folder (generated reports, charts, newsletters)
+├── agent.py               # Primary agent entrypoint & graph compiler (make_graph)
+├── subagents.py           # 4 specialist subagents (analyst, inbox, reviewer, researcher)
+├── langgraph.json         # LangGraph Dev server configuration manifest
+├── USER_GUIDE.md          # Comprehensive prompt playbook & database schema guide
+├── AGENTS.md              # Operating manual & global system instructions
+├── pyproject.toml         # Dependency specifications (deepagents, langchain, fastmcp)
+├── start.sh               # Shell launch script for Unix/Linux environments
+├── test_diagnostic.py     # End-to-end diagnostic test suite & verification
+├── test_lesson_prompts.py # Prompt regression test suite
+├── agents/                # Per-subagent persistent memory storage
+│   └── chinook-analyst/   # Analyst memory store (introspected DDL database schema)
+│       └── AGENTS.md
+├── .agents/               # Custom workspace rules & research workflows
+│   ├── rules/             # Rule definitions (langchain-rules.md)
+│   └── workflows/         # Workflow playbooks (langchain-research.md)
+├── skills/                # Plain-text task playbooks
+│   ├── rfq-quote/         # Step-by-step quote processing instructions
+│   ├── territory-report/  # Territory metrics & chart generation instructions
+│   └── weekly-newsletter/ # Parallel genre research & newsletter assembly
+├── tools/                 # Custom tool implementations
+│   ├── sql.py             # Read-only SQLite query, schema introspection & customer insertion
+│   ├── html.py            # nh3 sanitized Markdown-to-HTML converter
+│   ├── chart.py           # Matplotlib pie chart generator
+│   └── search.py          # Tavily news search wrapper
+├── mcp/                   # Mock Mail FastMCP HTTP Server
+│   ├── mock_mail_server.py # FastMCP server running on port 5002
+│   ├── mail_store.py       # Persistent JSON mailbox manager
+│   ├── send_to_inbox.py    # CLI tool to inject incoming customer emails
+│   └── seeds/              # Seed JSON email fixtures (RFQ requests)
+├── research/              # Isolated workspace for parallel web search notes (/research/<timestamp>/)
+├── outputs/               # Deliverables output directory (reports, charts, newsletters, quotes ledger)
+├── UI/                    # User Interface screenshots & setup reference
+│   ├── Setup_UI.png        # Agent Chat configuration & connection setup
+│   ├── Chat_UI.png         # Agent execution & skill playbook inspection
+│   └── agent_response.png  # Real-time territory report response & metrics
 └── data/
-    └── chinook.db      # SQLite database (Employee, Customer, Invoice, Track, Genre, etc.)
+    └── chinook.db         # SQLite database (Employee, Customer, Invoice, Track, Genre, etc.)
 ```
-
 ---
+
+## 🖥️ User Interface & Execution Showcase
+
+The project integrates seamlessly with the **LangChain Agent Chat** UI (`agentchat.vercel.app`) and **LangGraph Studio** for interactive prompt execution, tool inspection, and HITL approvals.
+
+### 1. Connection & Setup Configuration
+Connect the local server (`http://localhost:2024`) with Assistant ID `agent`:
+![Setup UI](UI/Setup_UI.png)
+
+### 2. Interactive Execution & Skill Inspection
+The primary agent reads task instructions from `/skills/` and orchestrates subagents:
+![Chat UI](UI/Chat_UI.png)
+
+### 3. Response & Performance Metrics
+Summary response detailing Jane Peacock's territory revenue breakdown ($833.04 total revenue across 146 invoices):
+![Agent Response](UI/agent_response.png)
 
 ## ⚡ Core Business Workflows
 

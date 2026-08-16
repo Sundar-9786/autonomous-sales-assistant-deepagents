@@ -8,5 +8,12 @@
       "body": "Hi Jane,\n\nWe spoke briefly at the trade show last month - I run procurement for a chain of themed cafes and we'd like to license background music for our locations.\n\nCould you put together a quote for the following?\n\n- 40 Rock tracks\n- 25 Metal tracks\n- 10 of your best-selling tracks overall (your pick)\n\nWe're a new account - I don't think we're in your system yet. Company is Northern Lights Cafes, and you can reach me at this address.\n\nIf the pricing works we'd want to move quickly. Thanks!\n\nMorgan Vale\nProcurement, Northern Lights Cafes"
     }
   ],
-  "drafts": []
+  "drafts": [
+    {
+      "id": "draft-1",
+      "to": "morgan.vale@northern-lights-cafes.example",
+      "subject": "Quote for Rock, Metal, and best-selling tracks",
+      "body": "Hi Morgan,\n\nThanks for reaching out and for following up after the trade show \u2013 and congrats on the new Northern Lights Cafes locations.\n\nBased on your request, here\u2019s a quote for licensing background music from our catalogue:\n\nLine items (all prices in USD):\n- 40 Rock tracks @ $0.99 each: $39.60\n- 25 Metal tracks @ $0.99 each: $24.75\n- 10 best-selling tracks (mixed genres) @ $0.99 each: $9.90\n\nSubtotal (75 tracks): $74.25\n\nVolume discount:\n- 10% discount applied on orders of 50+ tracks\n- Discount amount: $7.43\n\nGrand total:\n- Total after discount: $66.82 for 75 tracks (effective rate \u2248 $0.89 per track)\n\nIf you\u2019d like, we can also share a suggested playlist breakdown for different dayparts (mornings vs. evenings) once the licensing is confirmed.\n\nPlease let me know if these numbers work for you or if you\u2019d like to adjust quantities or genres and I\u2019ll be happy to revise.\n\nBest regards,\nJane Peacock\nSales Support Agent | Chinook Music Distribution"
+    }
+  ]
 }
